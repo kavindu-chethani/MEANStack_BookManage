@@ -19,7 +19,7 @@ router.get('/:id', function(req, res, next) {
   });
 });
 
-/* SAVE BOOK */
+/* Add BOOK  */
 router.post('/', function(req, res, next) {
   Book.create(req.body, function (err, post) {
     if (err) return next(err);
@@ -27,7 +27,7 @@ router.post('/', function(req, res, next) {
   });
 });
 
-/* UPDATE BOOK */
+/* UPDATE BOOK  by id*/
 router.put('/:id', function(req, res, next) {
   Book.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
@@ -35,7 +35,7 @@ router.put('/:id', function(req, res, next) {
   });
 });
 
-/* DELETE BOOK */
+/* DELETE BOOK by id */
 router.delete('/:id', function(req, res, next) {
   Book.findByIdAndRemove(req.params.id, req.body, function (err, post) {
     if (err) return next(err);

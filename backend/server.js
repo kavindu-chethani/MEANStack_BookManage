@@ -25,11 +25,9 @@ connection.once ("open", ()=>{
     console.log("MongoDB Database Connection Successfull"); // Display in console if connection is successful
 })
 
-
-//store
-// const storeRouter = require('./routes/book');
-// app.use('/Store',storeRouter);
-
+//book router
+const bookRouter = require(`./routes/book`);
+app.use("/book",bookRouter);
 
 
 

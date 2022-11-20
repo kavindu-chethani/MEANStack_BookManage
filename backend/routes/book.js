@@ -3,13 +3,29 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Book = require('../models/Book.js');
 
-/* GET ALL BOOKS */
-router.get('/', function(req, res, next) {
-  Book.find(function (err, products) {
-    if (err) return next(err);
-    res.json(products);
+// GET ALL BOOKS http://localhost:8080/get
+// router.get('/', function(req, res, next) {
+//   Book.find(function (err, products) {
+//     if (err) return next(err);
+//     res.json(products);
+//   });
+// });
+
+
+// GET ALL BOOKS http://localhost:8080/book/get
+router.get('/get', async(req,res)=>{
+  Book.find().exec((err,Book)=>{
+     if(err){
+         return res.status(400).json({
+             error:err
+         });
+     }return res.status(200).json({
+         success:"true",
+         Book
+     });
   });
-});
+ 
+ });
 
 /* GET SINGLE BOOK BY ID */
 router.get('/:id', function(req, res, next) {
@@ -20,7 +36,7 @@ router.get('/:id', function(req, res, next) {
 });
 
 /* Add BOOK  */
-router.post('/', function(req, res, next) {
+router.post('/add', function(req, res, next) {
   Book.create(req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);

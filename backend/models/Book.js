@@ -2,7 +2,17 @@ const { text } = require('express');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const BookSchema = new mongoose.Schema(
+// var BookSchema = new mongoose.Schema({
+//     isbn: String,
+//     title: String,
+//     author: String,
+//     description: String,
+//     published_year: String,
+//     publisher: String,
+
+//   });
+
+  const BookSchema =  new mongoose.Schema(
     {
         isbn:{
             type: String,
@@ -28,10 +38,7 @@ const BookSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        updated_date:{
-            type: String,
-            required: true,
-        },
+       
       
 
     }

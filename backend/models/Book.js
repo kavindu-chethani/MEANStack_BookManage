@@ -12,7 +12,7 @@ const Schema = mongoose.Schema;
 
 //   });
 
-  const BookSchema =  new mongoose.Schema(
+  const BookSchema=  new mongoose.Schema(
     {
         isbn:{
             type: String,

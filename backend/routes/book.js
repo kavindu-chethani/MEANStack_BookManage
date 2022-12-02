@@ -13,7 +13,7 @@ var Book = require('../models/Book.js');
 
 
 // GET ALL BOOKS http://localhost:8080/book/get
-router.get('/get', async(req,res)=>{
+router.get('/get', (req,res)=>{
   Book.find().exec((err,Book)=>{
      if(err){
          return res.status(400).json({
@@ -58,5 +58,13 @@ router.delete('/:id', function(req, res, next) {
     res.json(post);
   });
 });
+
+//Update author by id
+// router.put('/:id', function(req, res, next) {
+//   Author.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
+//     if (err) return next(err);
+//     res.json(post);
+//   });
+// });
 
 module.exports = router;

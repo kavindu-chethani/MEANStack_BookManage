@@ -1,5 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { BookServiceService} from '../book-service.service';
+
+export class Books{
+  constructor(
+    public isbn:String,
+    public title:String,
+    public author:String,
+    public description:String,
+    public published_year:String,
+    public publisher:String
+  
+  ){}
+}
 
 
 @Component({
@@ -8,15 +22,31 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./book.component.css']
 })
 
+export class BookComponent implements OnInit {
+  Books: any = [];
+  isbn:any;
+  title:any;
+  author:any;
+  description:any;
+  published_year:any;
+  publisher:any;
 
-export class BookComponent {
-  books: any;
+  constructor(
+    private BookService: BookServiceService,
+   
+  ) { }
 
-  constructor(private http: HttpClient) { }
 
-  ngOnInit() {
-    this.http.get('/book').subscribe(data => {
-      this.books = data;
-    });
+  ngOnInit(): void {
+    
+    this.BookService.getAllBooks().subscribe(
+      data => {
+        this.Books = data;
+        console.log(data)
+      
+        
+      }
+    )
   }
-}
+
+ }

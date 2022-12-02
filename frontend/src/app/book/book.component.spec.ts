@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { BookComponent } from './book.component';
+
 
 describe('BookComponent', () => {
   let component: BookComponent;
@@ -10,6 +10,7 @@ describe('BookComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ BookComponent ]
     })
+
     .compileComponents();
 
     fixture = TestBed.createComponent(BookComponent);

@@ -3,13 +3,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Book = require('../models/Book.js');
 
-// GET ALL BOOKS http://localhost:8080/get
-// router.get('/', function(req, res, next) {
-//   Book.find(function (err, products) {
-//     if (err) return next(err);
-//     res.json(products);
-//   });
-// });
+
 
 
 
@@ -62,12 +56,6 @@ router.delete('/:id', function(req, res, next) {
   });
 });
 
-//Update author by id
-// router.put('/:id', function(req, res, next) {
-//   Author.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
-//     if (err) return next(err);
-//     res.json(post);
-//   });
-// });
+
 
 module.exports = router;

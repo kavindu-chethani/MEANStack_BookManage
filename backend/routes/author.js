@@ -32,3 +32,11 @@ router.get('/get', (req,res)=>{
       res.json(post);
     });
   });
+  
+  //Update author by id
+router.put('/:id', function(req, res, next) {
+  Author.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+  });
+});

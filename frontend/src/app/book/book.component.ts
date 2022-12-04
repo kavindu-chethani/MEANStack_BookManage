@@ -24,6 +24,8 @@ export class Books{
 
 export class BookComponent implements OnInit {
   Books: any = [];
+  BookList: any = [];
+
   isbn:any;
   title:any;
   author:any;
@@ -42,7 +44,8 @@ export class BookComponent implements OnInit {
     this.BookService.getAllBooks().subscribe(
       data => {
         this.Books = data;
-        console.log(data)
+        this.BookList = this.Books.bookArray;
+        console.log(this.Books.bookArray)
       
         
       }

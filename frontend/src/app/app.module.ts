@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { BookDetailComponent } from './book-detail/book-detail.component';
+import { BookCreateComponent } from './book-create/book-create.component';
 
 //Create constant router for routing to book component
 
@@ -21,6 +22,11 @@ const appRoutes: Routes = [
       component: BookDetailComponent,
       data: { title: 'Book Details' }
     },
+    {
+      path: 'book-create',
+      component: BookCreateComponent,
+      data: { title: 'Create Book' }
+    },
     { path: '',
       redirectTo: '/books',
       pathMatch: 'full'
@@ -31,7 +37,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     BookComponent,
-    BookDetailComponent
+    BookDetailComponent,
+    BookCreateComponent
   ],
   
   imports: [

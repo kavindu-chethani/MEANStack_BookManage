@@ -15,16 +15,20 @@ var Book = require('../models/Book.js');
 // GET ALL BOOKS http://localhost:8080/book/get
 router.get('/get', (req,res)=>{
   Book.find().exec((err,Book)=>{
-     if(err){
+   
+     if(err ){
          return res.status(400).json({
              error:err
          });
      }return res.status(200).json({
          success:"true",
-         Book
+         
+         bookArray:Book
+        
      });
+     
   });
- 
+
  });
 
 /* GET SINGLE BOOK BY ID */

@@ -29,7 +29,9 @@ connection.once ("open", ()=>{
 const bookRouter = require(`./routes/book`);
 app.use("/book",bookRouter);
 
-
+//author routes
+const authorRouter = require(`./routes/author`);
+app.use("/author",authorRouter);
 
 app.listen(PORT,()=>{
     console.log(`Server is running on port number : ${PORT}`); // Dipaly in console if server is running

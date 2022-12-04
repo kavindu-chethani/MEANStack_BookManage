@@ -12,6 +12,7 @@ var Book = require('../models/Book.js');
 // });
 
 
+
 // GET ALL BOOKS http://localhost:8080/book/get
 router.get('/get', (req,res)=>{
   Book.find().exec((err,Book)=>{
@@ -22,9 +23,7 @@ router.get('/get', (req,res)=>{
          });
      }return res.status(200).json({
          success:"true",
-         
          bookArray:Book
-        
      });
      
   });
